@@ -1,16 +1,15 @@
 import React from 'react';
+import {RouterProvider} from "react-router-dom";
+import {router} from "./router";
+import {ThemeProvider} from "@mui/material";
+import {theme} from "./styles/theme";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-          Learn React
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
+    );
 }
 
 export default App;
