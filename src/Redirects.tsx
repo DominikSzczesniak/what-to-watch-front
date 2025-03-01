@@ -1,8 +1,9 @@
 import { Navigate } from "react-router-dom";
+import {UserContext} from "./AppContext";
+import {useContext} from "react";
 
-const Redirects = () => {
-    return <Navigate to="/movies" replace />;
+export const Redirects = () => {
+    const { userId } = useContext(UserContext);
 
+    return userId ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />;
 };
-
-export default Redirects;

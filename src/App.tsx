@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {RouterProvider} from "react-router-dom";
-import {router} from "./router";
 import {ThemeProvider} from "@mui/material";
 import {theme} from "./styles/theme";
+import {router} from "./router";
+import {UserContext} from "./AppContext";
 
-function App() {
+const App = () => {
+    const [userId, setUserId] = useState("");
+
     return (
         <ThemeProvider theme={theme}>
-            <RouterProvider router={router}/>
+            <UserContext.Provider value={{userId, setUserId}}>
+                <RouterProvider router={router}/>
+            </UserContext.Provider>
         </ThemeProvider>
     );
 }

@@ -1,6 +1,6 @@
 import {User} from "../model/User";
 
-export const UsersApi = {
+export const UserApi = {
     register: async (userToCreate: User) => {
         try {
             const response = await fetch('http://localhost:8080/api/users', {
