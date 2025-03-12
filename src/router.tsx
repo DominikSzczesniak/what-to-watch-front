@@ -1,9 +1,9 @@
 import {createBrowserRouter} from "react-router-dom";
-import {Layout} from "./components/common/Layout";
-import {UserGeneral} from "./components/users/UserGeneral";
-import {MovieMain} from "./components/movies/MovieMain";
+import {Layout} from "./components/common/Layout/Layout";
+import {MovieList} from "./components/movies/MovieList/MovieList";
 import {Redirects} from "./Redirects";
 import {UserRegister} from "./components/users/UserRegister";
+import {UserLogin} from "./components/users/UserLogin";
 
 export const router = createBrowserRouter([
     {
@@ -11,9 +11,9 @@ export const router = createBrowserRouter([
         element: <Layout/>,
         children: [
             {path: "/", element: <Redirects/>},
-            {path: "/login", element: <UserGeneral/>},
+            {path: "/login", element: <UserLogin/>},
             {path: "/register", element: <UserRegister/>},
-            {path: "/main", element: <MovieMain/>}
+            {path: "/main", element: <MovieList/>}
         ],
     },
 ]);

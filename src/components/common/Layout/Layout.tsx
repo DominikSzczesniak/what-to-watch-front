@@ -5,7 +5,7 @@ export const Layout = () => {
 
     return (
         <>
-            <AppBar position="fixed">
+            <AppBar position="sticky">
                 <Toolbar>
                     <Typography variant="h6" component="div">
                         <Link to="/" style={{textDecoration: "none", color: "inherit"}}>
@@ -14,7 +14,7 @@ export const Layout = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Box component="main">
+            <Box component="main" sx={{ marginTop: 8, padding: 2 }}>
                 <Outlet/>
             </Box>
         </>

@@ -8,14 +8,14 @@ export const UserRegister = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleRegister = async () => {  // todo
-        const response = await UserApi.register({username, password});
+    const handleRegister = async () => {
+        await UserApi.register({username, password});
     }
 
     const handleGoToLogin = () => navigate("/login");
 
     return (
-        <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Box display="flex" justifyContent="center" alignItems="center">
             <Paper elevation={3} sx={{padding: 4, width: 320, textAlign: "center"}}>
                 <Typography variant="h5" gutterBottom>
                     Register

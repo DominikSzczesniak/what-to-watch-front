@@ -31,7 +31,7 @@ export const UserLogin = () => {
 
     const handleGoToRegister = () => navigate("/register");
     return (
-        <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Box display="flex" justifyContent="center" alignItems="center">
             <Paper elevation={3} sx={{padding: 4, width: 320, textAlign: "center"}}>
                 <Typography variant="h5" gutterBottom>
                     Login
