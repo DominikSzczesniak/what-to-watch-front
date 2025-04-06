@@ -65,8 +65,9 @@ export const MovieList = () => {
                         <TableBody>
                             {movies && movies.map && movies.map((movie: Movie) => (
                                 <MovieListElement
-                                    key={movie.id}
+                                    key={movie.movieId}
                                     movie={movie}
+                                    getMovies={getMovies}
                                 />
                             ))}
                         </TableBody>

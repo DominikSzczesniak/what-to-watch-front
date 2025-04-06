@@ -1,21 +1,34 @@
 import {TableCell, TableRow} from "@mui/material";
 import {Movie} from "../../../model/Movie";
+import {useState} from "react";
+import {MovieEdit} from "../MovieEdit/MovieEdit";
 
 export interface MovieListElementProps {
     movie: Movie;
+    getMovies: () => void;
 }
 
-export const MovieListElement = ({movie}: MovieListElementProps) => {
+export const MovieListElement = ({movie, getMovies}: MovieListElementProps) => {
+    const [openEdit, setOpenEdit] = useState(false);
+
     return (
-        <TableRow
-            hover
-            sx={{cursor: 'pointer'}}
-            onClick={() => null}>
-            <TableCell>
-                {`${movie.title}`}
-            </TableCell>
-            <TableCell align="right" padding="none">
-            </TableCell>
-        </TableRow>
+        <>
+            {openEdit && (
+                <MovieEdit
+                    movieId={movie.movieId}
+                    onSave={() => {
+                        setOpenEdit(false);
+                        getMovies();
+                    }}
+                    onCancel={() => setOpenEdit(false)}
+                />
+            )}
+
+            <TableRow hover sx={{cursor: 'pointer'}} onClick={() => setOpenEdit(true)}>
+                <TableCell>
+                    {`${movie.title}`}
+                </TableCell>
+            </TableRow>
+        </>
     );
 };
