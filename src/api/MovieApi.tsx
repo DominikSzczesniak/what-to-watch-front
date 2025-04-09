@@ -14,6 +14,34 @@ export const MovieApi = {
             console.error('Error during fetching movies:', error);
         }
     },
+    fetchWatchedMovies: async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/movies/watched?page=${1}&moviesPerPage=${10}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error during fetching watched movies:', error);
+            throw error;
+        }
+    },
+    moveMovieToWatchedList: async (movieId: number) => {
+        try {
+            await fetch(`http://localhost:8080/api/movies/${movieId}/watched`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+        } catch (error) {
+            console.error('Error during moving movie to watched list:', error);
+            throw error;
+        }
+    },
     addMovie: async (movie: { title: string }) => {
         try {
             const response = await fetch('http://localhost:8080/api/movies', {
@@ -27,6 +55,20 @@ export const MovieApi = {
             return await response.json();
         } catch (error) {
             console.error('Error during adding movie:', error);
+        }
+    },
+    deleteMovie: async (movieId: number) => {
+        try {
+            await fetch(`http://localhost:8080/api/movies/${movieId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+        } catch (error) {
+            console.error('Error during deleting movie:', error);
+            throw error;
         }
     },
     getMovieById: async (movieId: number) => {

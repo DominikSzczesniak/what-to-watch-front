@@ -4,6 +4,7 @@ import {MovieList} from "./components/movies/MovieList/MovieList";
 import {Redirects} from "./Redirects";
 import {UserRegister} from "./components/users/UserRegister";
 import {UserLogin} from "./components/users/UserLogin";
+import {WatchedMoviesList} from "./components/movies/WatchedMovieList/WatchedMovieList";
 
 export const router = createBrowserRouter([
     {
@@ -13,7 +14,8 @@ export const router = createBrowserRouter([
             {path: "/", element: <Redirects/>},
             {path: "/login", element: <UserLogin/>},
             {path: "/register", element: <UserRegister/>},
-            {path: "/main", element: <MovieList/>}
+            {path: "/main", element: <MovieList/>},
+            {path: "/watched", element: <WatchedMoviesList/>}
         ],
     },
 ]);
