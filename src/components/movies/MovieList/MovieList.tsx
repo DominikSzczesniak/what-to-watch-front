@@ -45,7 +45,6 @@ export const MovieList = () => {
     };
 
     const renderLoaded = () => {
-        console.log(movies)
         if (movies.length === 0) {
             return (
                 <Stack spacing={2} alignItems="center">
@@ -81,7 +80,6 @@ export const MovieList = () => {
     return (
         <>
             {renderLoaded()}
-
             {open && (
                 <AddMovieModal
                     onCancel={handleClose}
