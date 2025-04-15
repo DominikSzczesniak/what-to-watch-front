@@ -25,6 +25,7 @@ export const Layout = () => {
                     >
                         <Tab label="Movies to Watch" value="/main" />
                         <Tab label="Watched Movies" value="/watched" />
+                        <Tab label="Configuration" value="/configuration" />
                     </Tabs>
                 </Toolbar>
             </AppBar>
