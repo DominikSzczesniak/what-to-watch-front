@@ -1,7 +1,7 @@
-import {RecommendationConfiguration, UpdateRecommendationConfiguration} from "../model/RecommendationConfiguration";
+import {UpdateRecommendationConfiguration} from "../model/RecommendationConfiguration";
 
 export const RecommendationApi = {
-    getConfiguration: async (): Promise<RecommendationConfiguration> => {
+    getConfiguration: async () => {
         try {
             const response = await fetch('http://localhost:8080/api/recommendations/configuration', {
                 headers: {

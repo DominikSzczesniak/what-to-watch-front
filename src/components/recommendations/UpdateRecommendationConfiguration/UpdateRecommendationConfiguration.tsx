@@ -30,6 +30,9 @@ export const UpdateRecommendationConfiguration = () => {
 
     useEffect(() => {
         fetchConfiguration();
+        if (!hasConfig) { // todo fix
+            RecommendationApi.createConfiguration({limitToGenres:[]})
+        }
     }, []);
 
     const fetchConfiguration = async () => {
