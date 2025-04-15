@@ -1,4 +1,5 @@
 import {UpdateRecommendationConfiguration} from "../model/RecommendationConfiguration";
+import {RecommendedMovies} from "../model/RecommendedMovieList";
 
 export const RecommendationApi = {
     getConfiguration: async () => {
@@ -45,6 +46,21 @@ export const RecommendationApi = {
             return await response.json();
         } catch (error) {
             console.error('Error during creating recommendation configuration:', error);
+            throw error;
+        }
+    },
+
+    getLatestRecommendedMovies: async (): Promise<RecommendedMovies> => {
+        try {
+            const response = await fetch('http://localhost:8080/api/recommendations/latest', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error during fetching recommended movies:', error);
             throw error;
         }
     }
