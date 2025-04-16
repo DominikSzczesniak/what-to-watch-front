@@ -6,6 +6,7 @@ import {UserRegister} from "./components/users/UserRegister";
 import {UserLogin} from "./components/users/UserLogin";
 import {WatchedMoviesList} from "./components/movies/WatchedMovieList/WatchedMovieList";
 import {UpdateRecommendationConfiguration} from "./components/recommendations/UpdateRecommendationConfiguration/UpdateRecommendationConfiguration";
+import {RecommendedMovieList} from "./components/recommendations/RecommendedMovies/RecommendedMovies";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
             {path: "/register", element: <UserRegister/>},
             {path: "/main", element: <MovieList/>},
             {path: "/watched", element: <WatchedMoviesList/>},
-            {path: "/configuration", element: <UpdateRecommendationConfiguration/>}
+            {path: "/configuration", element: <UpdateRecommendationConfiguration/>},
+            {path: "/recommended", element: <RecommendedMovieList/>},
         ],
     },
 ]);
