@@ -1,4 +1,5 @@
 import {Movie} from "../model/Movie";
+import {MovieTag} from "../model/MovieTag";
 
 export const MovieApi = {
     fetchMovies: async () => {
@@ -98,6 +99,53 @@ export const MovieApi = {
             });
         } catch (error) {
             console.error('Error during updating movie:', error);
+        }
+    },
+
+    getTags: async (): Promise<MovieTag[]> => {
+        try {
+            const response = await fetch('http://localhost:8080/api/movies/tags', {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error during fetching tags:', error);
+            throw error;
+        }
+    },
+
+    addTagToMovie: async (movieId: number, tagLabel?: string, tagId?: string): Promise<string> => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/movies/${movieId}/tags${tagId ? `?tagId=${tagId}` : ''}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: tagLabel ? JSON.stringify({tagLabel}) : undefined,
+            });
+            return await response.json();
+        } catch (error) {
+            console.error('Error during adding tag to movie:', error);
+            throw error;
+        }
+    },
+
+    deleteTagFromMovie: async (movieId: number, tagId: string): Promise<void> => {
+        try {
+            await fetch(`http://localhost:8080/api/movies/${movieId}/tags/${tagId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+        } catch (error) {
+            console.error('Error during deleting tag from movie:', error);
+            throw error;
         }
     }
 };
