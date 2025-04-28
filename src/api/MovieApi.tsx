@@ -2,9 +2,10 @@ import {Movie} from "../model/Movie";
 import {MovieTag} from "../model/MovieTag";
 
 export const MovieApi = {
-    fetchMovies: async () => {
+    fetchMovies: async (tags?: string[]) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/movies?page=${1}&moviesPerPage=${10}`, {
+            const tagsParam = tags?.length ? `&tags=${tags.join(',')}` : '';
+            const response = await fetch(`http://localhost:8080/api/movies?page=${1}&moviesPerPage=${10}${tagsParam}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

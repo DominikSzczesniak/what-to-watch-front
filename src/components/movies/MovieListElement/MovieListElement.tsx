@@ -9,9 +9,10 @@ import {MovieApi} from "../../../api/MovieApi";
 export interface MovieListElementProps {
     movie: Movie;
     getMovies: () => void;
+    onTagAdded: () => void;
 }
 
-export const MovieListElement = ({movie, getMovies}: MovieListElementProps) => {
+export const MovieListElement = ({movie, getMovies, onTagAdded}: MovieListElementProps) => {
     const [openEdit, setOpenEdit] = useState(false);
 
     const handleMarkAsWatched = async () => {
@@ -42,6 +43,7 @@ export const MovieListElement = ({movie, getMovies}: MovieListElementProps) => {
                         getMovies();
                     }}
                     onCancel={() => setOpenEdit(false)}
+                    onTagAdded={onTagAdded}
                 />
             )}
 

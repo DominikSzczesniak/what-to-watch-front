@@ -21,6 +21,7 @@ interface MovieEditProps {
     movieId: number;
     onSave: () => void;
     onCancel: () => void;
+    onTagAdded: () => void;
 }
 
 export const MovieEdit = (props: MovieEditProps) => {
@@ -59,6 +60,7 @@ export const MovieEdit = (props: MovieEditProps) => {
             await fetchTags();
             getMovie(movie.movieId);
             setSelectedTag(null);
+            props.onTagAdded();
         } catch (error) {
             console.error("Error adding tag:", error);
         }
