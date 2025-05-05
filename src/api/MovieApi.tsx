@@ -148,5 +148,36 @@ export const MovieApi = {
             console.error('Error during deleting tag from movie:', error);
             throw error;
         }
+    },
+    getMovieCover: async (movieId: number): Promise<string> => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/movies/${movieId}/cover`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+        } catch (error) {
+            console.error('Error during fetching movie cover:', error);
+            throw error;
+        }
+    },
+
+    setMovieCover: async (movieId: number, image: File): Promise<void> => {
+        try {
+            const formData = new FormData();
+            formData.append('image', image);
+
+            await fetch(`http://localhost:8080/api/movies/${movieId}/cover`, {
+                method: 'PUT',
+                credentials: 'include',
+                body: formData,
+            });
+        } catch (error) {
+            console.error('Error during setting movie cover:', error);
+            throw error;
+        }
     }
 };
