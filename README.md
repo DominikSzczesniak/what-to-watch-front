@@ -16,6 +16,6 @@ Frontend part of the "What to watch" app: https://github.com/DominikSzczesniak/w
 - **Language**: TypeScript
 - **UI Library**: Material UI
 
-![img.png](resources/img.png)
-![img.png](resources/img2.png)
-![img.png](resources/img3.png)
+![Alt text](/resources/img.png?raw=true)
+![Alt text](/resources/img2.png?raw=true)
+![Alt text](/resources/img3.png?raw=true)
