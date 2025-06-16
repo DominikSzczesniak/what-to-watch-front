@@ -17,5 +17,6 @@ Frontend part of the "What to watch" app: https://github.com/DominikSzczesniak/w
 - **UI Library**: Material UI
 
 ![Alt text](/resources/img.png?raw=true)
+![Alt text](/resources/img4.png?raw=true)
 ![Alt text](/resources/img2.png?raw=true)
 ![Alt text](/resources/img3.png?raw=true)

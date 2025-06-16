@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Box, Stack, Table, TableBody, TableContainer} from "@mui/material";
+import {Box, Stack, Table, TableBody, TableContainer, TextField} from "@mui/material";
 import {MovieApi} from "../../../api/MovieApi";
 import {Movie} from "../../../model/Movie";
 import {MovieTag} from "../../../model/MovieTag";
@@ -11,6 +11,8 @@ import {TagFilter} from "../../common/TagFilter/TagFilter";
 
 export const MovieList = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>("");
     const [open, setOpen] = useState(false);
     const [availableTags, setAvailableTags] = useState<MovieTag[]>([]);
     const [selectedTags, setSelectedTags] = useState<MovieTag[]>([]);
@@ -19,6 +21,17 @@ export const MovieList = () => {
         getMovies();
         fetchTags();
     }, [selectedTags]);
+
+    useEffect(() => {
+        if (searchTerm.trim() === "") {
+            setFilteredMovies(movies);
+        } else {
+            const filtered = movies.filter(movie => 
+                movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredMovies(filtered);
+        }
+    }, [searchTerm, movies]);
 
     const fetchTags = async () => {
         try {
@@ -71,9 +84,24 @@ export const MovieList = () => {
                     selectedTags={selectedTags}
                     onTagsChange={setSelectedTags}
                 />
+                <Box sx={{width: '100%', mb: 2}}>
+                    <TextField
+                        label="Search movies"
+                        variant="outlined"
+                        fullWidth
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="Enter movie title..."
+                    />
+                </Box>
                 {movies.length === 0 ? (
                     <Stack spacing={2} alignItems="center">
                         <AddFirstElementIcon label="No movies found" text="Add a new movie"/>
+                        <AddMovieButton onClick={handleClickAddMovieButton}/>
+                    </Stack>
+                ) : filteredMovies.length === 0 ? (
+                    <Stack spacing={2} alignItems="center">
+                        <AddFirstElementIcon label="No movies match your search" text="Try a different search term"/>
                         <AddMovieButton onClick={handleClickAddMovieButton}/>
                     </Stack>
                 ) : (
@@ -81,7 +109,7 @@ export const MovieList = () => {
                         <TableContainer>
                             <Table>
                                 <TableBody>
-                                    {movies.map((movie: Movie) => (
+                                    {filteredMovies.map((movie: Movie) => (
                                         <MovieListElement
                                             key={movie.movieId}
                                             movie={movie}
