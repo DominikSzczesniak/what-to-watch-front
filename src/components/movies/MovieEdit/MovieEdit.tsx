@@ -21,8 +21,6 @@ import {MovieForm} from "../MovieForm/MovieForm";
 import {MovieTag} from "../../../model/MovieTag";
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
-const NoCoverImage = require('../../../assets/NoCover.PNG');
-
 interface MovieEditProps {
     movieId: number;
     onSave: () => void;
@@ -141,7 +139,6 @@ export const MovieEdit = (props: MovieEditProps) => {
                                     <CardMedia
                                         component="img"
                                         height="300"
-                                        image={NoCoverImage}
                                         alt="No cover"
                                     />
                                 )}
