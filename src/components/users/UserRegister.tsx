@@ -9,7 +9,12 @@ export const UserRegister = () => {
     const [password, setPassword] = useState("");
 
     const handleRegister = async () => {
-        await UserApi.register({username, password});
+        try {
+            await UserApi.register({ username, password });
+            handleGoToLogin();
+        } catch (error) {
+            console.log("Couldn't create account")
+        }
     }
 
     const handleGoToLogin = () => navigate("/login");

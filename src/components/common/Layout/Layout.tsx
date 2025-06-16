@@ -5,6 +5,9 @@ export const Layout = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const tabPaths = ["/main", "/watched", "/configuration", "/recommended"];
+    const currentTab = tabPaths.includes(location.pathname) ? location.pathname : false;
+
     const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
         navigate(newValue);
     };
@@ -19,7 +22,7 @@ export const Layout = () => {
                         </Link>
                     </Typography>
                     <Tabs
-                        value={location.pathname}
+                        value={currentTab}
                         onChange={handleTabChange}
                         textColor="inherit"
                     >
