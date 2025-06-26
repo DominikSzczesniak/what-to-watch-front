@@ -14,6 +14,7 @@ export const UserRegister = () => {
             handleGoToLogin();
         } catch (error) {
             console.log("Couldn't create account")
+            console.error(error)
         }
     }
 
