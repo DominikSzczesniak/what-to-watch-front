@@ -4,7 +4,7 @@ import {MovieTag} from "../model/MovieTag";
 export const MovieApi = {
     fetchMovies: async (tags?: string[]) => {
             const tagsParam = tags?.length ? `&tags=${tags.join(',')}` : '';
-            const response = await fetch(`/api/movies?page=${1}&moviesPerPage=${10}${tagsParam}`, {
+            const response = await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies?page=${1}&moviesPerPage=${10}${tagsParam}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -14,7 +14,7 @@ export const MovieApi = {
     },
 
     fetchWatchedMovies: async () => {
-            const response = await fetch(`/api/movies/watched?page=${1}&moviesPerPage=${10}`, {
+            const response = await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/watched?page=${1}&moviesPerPage=${10}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -24,7 +24,7 @@ export const MovieApi = {
     },
 
     moveMovieToWatchedList: async (movieId: number) => {
-            await fetch(`/api/movies/${movieId}/watched`, {
+            await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}/watched`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export const MovieApi = {
     },
 
     addMovie: async (movie: { title: string }) => {
-            const response = await fetch('/api/movies', {
+            const response = await fetch('https://java-application-latest-ypcz.onrender.com/api/movies', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const MovieApi = {
     },
 
     deleteMovie: async (movieId: number) => {
-            await fetch(`/api/movies/${movieId}`, {
+            await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export const MovieApi = {
     },
 
     getMovieById: async (movieId: number) => {
-            const response = await fetch(`/api/movies/${movieId}`, {
+            const response = await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const MovieApi = {
     },
 
     update: async (movie: Movie) => {
-            await fetch(`/api/movies/${movie.movieId}`, {
+            await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movie.movieId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export const MovieApi = {
     },
 
     getTags: async (): Promise<MovieTag[]> => {
-            const response = await fetch('/api/movies/tags', {
+            const response = await fetch('https://java-application-latest-ypcz.onrender.com/api/movies/tags', {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -88,7 +88,7 @@ export const MovieApi = {
     },
 
     addTagToMovie: async (movieId: number, tagLabel?: string, tagId?: string): Promise<string> => {
-            const response = await fetch(`/api/movies/${movieId}/tags${tagId ? `?tagId=${tagId}` : ''}`, {
+            const response = await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}/tags${tagId ? `?tagId=${tagId}` : ''}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export const MovieApi = {
     },
 
     deleteTagFromMovie: async (movieId: number, tagId: string): Promise<void> => {
-            await fetch(`/api/movies/${movieId}/tags/${tagId}`, {
+            await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}/tags/${tagId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ export const MovieApi = {
     },
 
     getMovieCover: async (movieId: number): Promise<string> => {
-            const response = await fetch(`/api/movies/${movieId}/cover`, {
+            const response = await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}/cover`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -124,7 +124,7 @@ export const MovieApi = {
             const formData = new FormData();
             formData.append('image', image);
 
-            await fetch(`/api/movies/${movieId}/cover`, {
+            await fetch(`https://java-application-latest-ypcz.onrender.com/api/movies/${movieId}/cover`, {
                 method: 'PUT',
                 credentials: 'include',
                 body: formData,

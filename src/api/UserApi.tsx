@@ -3,7 +3,7 @@ import {User} from "../model/User";
 export const UserApi = {
 
     register: async (userToCreate: User) => {
-            const response = await fetch('/api/users', {
+            const response = await fetch('https://java-application-latest-ypcz.onrender.com/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const UserApi = {
     },
 
     login: async (userToLogin: User) => {
-            const response = await fetch('/api/login', {
+            const response = await fetch('https://java-application-latest-ypcz.onrender.com/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
