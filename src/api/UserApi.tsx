@@ -3,7 +3,7 @@ import {User} from "../model/User";
 export const UserApi = {
 
     register: async (userToCreate: User) => {
-            const response = await fetch('http://localhost:8080/api/users', {
+            const response = await fetch('/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const UserApi = {
     },
 
     login: async (userToLogin: User) => {
-            const response = await fetch('http://localhost:8080/api/login', {
+            const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
