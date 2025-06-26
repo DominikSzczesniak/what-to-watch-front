@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://java-application-latest-d43f.onrender.com',
+        target: 'https://java-application-latest-ibso.onrender.com',
         changeOrigin: true,
         secure: false,
       }
