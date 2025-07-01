@@ -1,12 +1,12 @@
-import {createContext, Dispatch, SetStateAction} from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
 interface UserContextType {
-    userId: string;
-    setUserId: Dispatch<SetStateAction<string>>;
+  userId: string;
+  setUserId: Dispatch<SetStateAction<string>>;
 }
 
 export const UserContext = createContext<UserContextType>({
-    userId: "",
-    setUserId: () => {
-    },
+  userId: "",
+  setUserId: () => {
+  },
 });

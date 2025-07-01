@@ -1,7 +1,7 @@
-import {MovieTag} from "./MovieTag";
+import { MovieTag } from "./MovieTag";
 
 export interface Movie {
-    movieId: number;
-    title: string;
-    tags?: MovieTag[];
+  movieId: number;
+  title: string;
+  tags?: MovieTag[];
 }

@@ -1,4 +1,4 @@
-import { AppBar, Box, Tab, Tabs, Toolbar, Typography, Button } from "@mui/material";
+import { AppBar, Box, Button, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from '../../../AppContext';
@@ -36,10 +36,10 @@ export const Layout = () => {
                 onChange={handleTabChange}
                 textColor="inherit"
               >
-                <Tab label="Movies to Watch" value="/main" />
-                <Tab label="Watched Movies" value="/watched" />
-                <Tab label="Configuration" value="/configuration" />
-                <Tab label="Recommended Movies" value="/recommended" />
+                <Tab label="Movies to Watch" value="/main"/>
+                <Tab label="Watched Movies" value="/watched"/>
+                <Tab label="Configuration" value="/configuration"/>
+                <Tab label="Recommended Movies" value="/recommended"/>
               </Tabs>
 
               <Button

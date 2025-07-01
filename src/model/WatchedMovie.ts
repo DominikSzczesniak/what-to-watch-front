@@ -1,4 +1,4 @@
 export interface WatchedMovie {
-    movieId: number;
-    title: string;
+  movieId: number;
+  title: string;
 }

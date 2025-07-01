@@ -1,11 +1,11 @@
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 
 export interface AddMovieButtonProps {
-    onClick: () => void;
+  onClick: () => void;
 }
 
-export const AddMovieButton = ({onClick}: AddMovieButtonProps) => {
-    return (
-        <Button variant="contained" onClick={onClick}>Dodaj film</Button>
-    );
+export const AddMovieButton = ({ onClick }: AddMovieButtonProps) => {
+  return (
+    <Button variant="contained" onClick={onClick}>Dodaj film</Button>
+  );
 }
