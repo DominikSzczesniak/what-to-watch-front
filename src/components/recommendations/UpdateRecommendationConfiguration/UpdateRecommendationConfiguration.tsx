@@ -35,14 +35,15 @@ export const UpdateRecommendationConfiguration = () => {
     const fetchConfiguration = async () => {
         try {
             const config = await RecommendationApi.getConfiguration();
-            if (config) {
-                setSelectedGenres(config.genreNames || []);
+            if (config && Array.isArray(config.genreNames)) {
+                setSelectedGenres(config.genreNames);
                 setHasConfig(true);
             } else {
-                RecommendationApi.createConfiguration({limitToGenres:[]})
+                setHasConfig(false);
             }
         } catch (error) {
             console.error("Error fetching configuration:", error);
+            setHasConfig(false);
         }
     };
 
@@ -60,6 +61,7 @@ export const UpdateRecommendationConfiguration = () => {
                 await RecommendationApi.updateConfiguration({limitToGenres: selectedGenres});
             } else {
                 await RecommendationApi.createConfiguration({limitToGenres: selectedGenres});
+                setHasConfig(true);
             }
             await fetchConfiguration();
         } catch (error) {
