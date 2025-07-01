@@ -30,9 +30,6 @@ export const UpdateRecommendationConfiguration = () => {
 
     useEffect(() => {
         fetchConfiguration();
-        if (!hasConfig) { // todo fix
-            RecommendationApi.createConfiguration({limitToGenres:[]})
-        }
     }, []);
 
     const fetchConfiguration = async () => {
@@ -42,11 +39,10 @@ export const UpdateRecommendationConfiguration = () => {
                 setSelectedGenres(config.genreNames || []);
                 setHasConfig(true);
             } else {
-                setHasConfig(false);
+                RecommendationApi.createConfiguration({limitToGenres:[]})
             }
         } catch (error) {
             console.error("Error fetching configuration:", error);
-            setHasConfig(false);
         }
     };
 
