@@ -3,7 +3,7 @@ import {RecommendedMovies} from "../model/RecommendedMovieList";
 
 export const RecommendationApi = {
     getConfiguration: async () => {
-            const response = await fetch('/api/recommendations/configuration', {
+            const response = await fetch('https://java-application-latest-jijw.onrender.com/api/recommendations/configuration', {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -13,7 +13,7 @@ export const RecommendationApi = {
     },
 
     updateConfiguration: async (configuration: UpdateRecommendationConfiguration) => {
-            await fetch('/api/users/recommendations/configuration', {
+            await fetch('https://java-application-latest-jijw.onrender.com/api/users/recommendations/configuration', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const RecommendationApi = {
     },
 
     createConfiguration: async (configuration: UpdateRecommendationConfiguration) => {
-            const response = await fetch('/api/users/recommendations/configuration', {
+            const response = await fetch('https://java-application-latest-jijw.onrender.com/api/users/recommendations/configuration', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const RecommendationApi = {
     },
 
     getLatestRecommendedMovies: async (): Promise<RecommendedMovies> => {
-            const response = await fetch('/api/recommendations/latest', {
+            const response = await fetch('https://java-application-latest-jijw.onrender.com/api/recommendations/latest', {
                 headers: {
                     'Content-Type': 'application/json',
                 },
